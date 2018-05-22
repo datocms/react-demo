@@ -28,6 +28,12 @@ export default class Detail extends Component {
     snip.getInfo;
   }
 
+  getHost() {
+    if (window)
+      return window.location.protocol + "//" + window.location.hostname;
+    return "";
+  }
+
   async getData(id) {
     let results = await client.doQuery(client.queries.detail(id));
     console.log("results", results);
@@ -39,7 +45,9 @@ export default class Detail extends Component {
   render() {
     let { detail } = this.state;
     let { id } = this.props.match.params;
-    let pageUrl = "http://localhost:3000/listing/" + id;
+
+    let host = this.getHost();
+    let pageUrl = host + "/listing/" + id;
     let meta = detail && detail.meta ? detail.meta : [];
     if (!detail)
       return (
