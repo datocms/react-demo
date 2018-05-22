@@ -1,0 +1,319 @@
+
+
+div.datedropper {
+  &:before, .pick-submit, .pick-lg-b .pick-sl:before, .pick-m, .pick-lg-h {
+    background-color: $maincolor !important;
+  }
+  .pick-y.pick-jump, .pick li span, .pick-lg-b .pick-wke, .pick-btn {
+    color: $maincolor !important;
+  }
+}
+
+.comment-by-listing a:hover, .browse-all-user-listings a i, .hosted-by-title h4 a:hover {
+  color: $maincolor;
+}
+
+.style-2 {
+  .trigger.active a {
+    color: $maincolor;
+  }
+  .ui-accordion .ui-accordion-header-active {
+    &:hover {
+      color: $maincolor;
+    }
+    color: $maincolor;
+  }
+}
+
+#posts-nav li a:hover, .plan.featured .listing-badge, .post-content h3 a:hover, .add-review-photos i, .show-more-button i, .listing-details-sidebar li a, .star-rating .rating-counter a:hover, .more-search-options-trigger:after, .header-widget .sign-in:hover {
+  color: $maincolor;
+}
+
+#footer {
+  a, .footer-links li a:hover {
+    color: $maincolor;
+  }
+}
+
+#navigation.style-1 {
+  .current, ul li:hover a {
+    color: $maincolor;
+  }
+}
+
+.user-menu {
+  &.active .user-name:after, &:hover .user-name:after, &.active .user-name, &:hover .user-name {
+    color: $maincolor;
+  }
+}
+
+.main-search-input-item.location a:hover, .chosen-container .chosen-results li.highlighted, .input-with-icon.location a i:hover {
+  color: $maincolor;
+}
+
+.sort-by .chosen-container-single {
+  .chosen-single div:after, .chosen-default {
+    color: $maincolor;
+  }
+}
+
+.panel-dropdown a:after, .post-content a.read-more, .post-meta li a:hover, .widget-text h5 a:hover, .about-author a, a.button.border.white:hover, .icon-box-2 i, a.button.border {
+  color: $maincolor;
+}
+
+.style-2 {
+  .ui-accordion .ui-accordion-header:hover, .trigger a:hover {
+    color: $maincolor;
+  }
+}
+
+.plan.featured .listing-badges .featured, .list-4 li:before, .list-3 li:before, .list-2 li:before, .list-1 li:before, .info-box h4, .testimonial-carousel .slick-slide.slick-active .testimonial:before {
+  color: $maincolor;
+}
+
+.sign-in-form .tabs-nav li {
+  a:hover, &.active a {
+    color: $maincolor;
+  }
+}
+
+.lost_password:hover a, #top-bar .social-icons li a:hover i, .listing-share .social-icons li a:hover i, .agent .social-icons li a:hover i, #footer .social-icons li a:hover i, .headline span i {
+  color: $maincolor;
+}
+
+.qtyTotal, .mm-menu em.mm-counter, .option-set li a.selected, .category-small-box:hover, .pricing-list-container h4:after, #backtotop a, .chosen-container-multi .chosen-choices li.search-choice, .select-options li:hover, button.panel-apply, .layout-switcher a:hover, .listing-features.checkboxes li:before, .comment-by a.reply:hover, .add-review-photos:hover, .office-address h3:after, .post-img:before, button.button {
+  background-color: $maincolor;
+}
+
+input {
+  &[type=button], &[type=submit] {
+    background-color: $maincolor;
+  }
+}
+
+a.button {
+  background-color: $maincolor;
+  &.border:hover {
+    background-color: $maincolor;
+  }
+}
+
+table.basic-table th, .plan.featured .plan-price, mark.color, .style-4 .tabs-nav li.active a, .style-5 .tabs-nav li.active a, .dashboard-list-box .button.gray:hover, .change-photo-btn:hover, .dashboard-list-box a.rate-review:hover, input:checked + .slider, .add-pricing-submenu.button:hover, .add-pricing-list-item.button:hover, .custom-zoom-in:hover, .custom-zoom-out:hover, #geoLocation:hover, #streetView:hover {
+  background-color: $maincolor;
+}
+
+#scrollEnabling {
+  &:hover, &.enabled {
+    background-color: $maincolor;
+  }
+}
+
+#mapnav-buttons a:hover, #sign-in-dialog .mfp-close:hover, #small-dialog .mfp-close:hover {
+  background-color: $maincolor;
+}
+
+.rangeslider__fill, span.blog-item-tag, .testimonial-carousel .slick-slide.slick-active .testimonial-box, .listing-item-container.list-layout span.tag, .tip, .mfp-arrow:hover {
+  background: $maincolor;
+}
+
+.rangeslider__handle {
+  border-color: $maincolor;
+}
+
+.layout-switcher a.active {
+  color: $maincolor;
+  border-color: $maincolor;
+}
+
+#titlebar.listing-titlebar span.listing-tag {
+  border-color: $maincolor;
+  color: $maincolor;
+}
+
+.listing-slider-small {
+  .slick-next:hover, .slick-prev:hover {
+    background-color: $maincolor;
+  }
+}
+
+.listing-slider {
+  .slick-next:hover, .slick-prev:hover {
+    background-color: $maincolor;
+  }
+}
+
+.listing-nav-container.cloned .listing-nav li:first-child a {
+  &.active, &:hover {
+    border-color: $maincolor;
+    color: $maincolor;
+  }
+}
+
+.listing-nav li {
+  &:first-child a {
+    border-color: $maincolor;
+    color: $maincolor;
+  }
+  a {
+    &.active, &:hover {
+      border-color: $maincolor;
+      color: $maincolor;
+    }
+  }
+}
+
+.pricing-list-container h4 {
+  color: $maincolor;
+  border-color: $maincolor;
+}
+
+.sidebar-textbox ul.contact-details li a {
+  color: $maincolor;
+}
+
+a.button.border {
+  color: $maincolor;
+  border-color: $maincolor;
+}
+
+.trigger.active a {
+  background-color: $maincolor;
+  border-color: $maincolor;
+}
+
+.ui-accordion .ui-accordion-header-active {
+  &:hover {
+    background-color: $maincolor;
+    border-color: $maincolor;
+  }
+  background-color: $maincolor;
+  border-color: $maincolor;
+}
+
+.numbered.color {
+  ol > li::before {
+    border-color: $maincolor;
+    color: $maincolor;
+  }
+  &.filled ol > li::before {
+    border-color: $maincolor;
+    background-color: $maincolor;
+  }
+}
+
+.info-box {
+  border-top: 2px solid $maincolor;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+  background-color: $maincolor;
+  color: $maincolor;
+  &.no-border {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.93));
+    background-color: $maincolor;
+  }
+}
+
+.tabs-nav li {
+  a:hover {
+    border-color: $maincolor;
+    border-color: $maincolor;
+    color: $maincolor;
+  }
+  &.active a {
+    border-color: $maincolor;
+    color: $maincolor;
+  }
+}
+
+.style-3 .tabs-nav li {
+  a:hover, &.active a {
+    border-color: $maincolor;
+    background-color: $maincolor;
+  }
+}
+
+.checkboxes input[type=checkbox]:checked + label:before {
+  background-color: $maincolor;
+  border-color: $maincolor;
+}
+
+.listing-item-container.compact .listing-item-content span.tag {
+  background-color: $maincolor;
+}
+
+.dashboard-nav ul li {
+  &.active, &:hover {
+    border-color: $maincolor;
+  }
+}
+
+.dashboard-list-box .comment-by-listing a:hover {
+  color: $maincolor;
+}
+
+.opening-day:hover h5 {
+  color: $maincolor !important;
+}
+
+.map-box h4 a:hover {
+  color: $maincolor;
+}
+
+.infoBox-close:hover {
+  background-color: $maincolor;
+  -webkit-text-stroke: 1px $maincolor;
+}
+
+.cluster-visible {
+  background-color: $maincolor;
+  &:before {
+    border: 7px solid $maincolor;
+    box-shadow: inset 0 0 0 4px $maincolor;
+  }
+}
+
+.marker-arrow {
+  border-color: $maincolor transparent transparent;
+}
+
+.face {
+  &.front {
+    border-color: $maincolor;
+    color: $maincolor;
+  }
+  &.back {
+    background: $maincolor;
+    border-color: $maincolor;
+  }
+}
+
+.custom-zoom-in:hover:before, .custom-zoom-out:hover:before {
+  -webkit-text-stroke: 1px $maincolor;
+}
+
+.category-box-btn:hover {
+  background-color: $maincolor;
+  border-color: $maincolor;
+}
+
+.message-bubble.me .message-text {
+  color: $maincolor;
+  background-color: rgba(249, 25, 66, 0.05);
+  &:before {
+    color: rgba(249, 25, 66, 0.05);
+  }
+}
+
+.opening-hours.summary li {
+  &:hover, &.total-costs span {
+    color: #f91742;
+  }
+}
+
+.payment-tab-trigger > input:checked ~ label {
+  &::before {
+    border-color: #f91742;
+  }
+  &::after {
+    background-color: #f91742;
+  }
+}
