@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
   render() {
+    return null;
+
     return (
       <nav id="navigation" className="style-1">
         <ul id="responsive">

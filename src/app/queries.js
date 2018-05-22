@@ -66,7 +66,7 @@ const site = `{
         }
       }
     }
-    favicon: faviconMetaTags {
+    favicons: faviconMetaTags {
       attributes
       tag
       content
@@ -178,6 +178,11 @@ const list = `{
     amenities{
       id
       name
+    }
+    meta: _seoMetaTags {
+      tag
+      content
+      attributes
     }
   }
 }

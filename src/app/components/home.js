@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 
 import Header from "./header";
 import BigMap from "./big_map";
@@ -6,6 +7,7 @@ import Card from "./card";
 import Search from "./search";
 import Paginate from "./paginate";
 import client from "../utils";
+import * as snip from "../snip";
 
 export default class Home extends Component {
   constructor(props) {
@@ -21,6 +23,8 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.getData();
+    snip.init;
+    snip.getInfo;
   }
 
   onSearch(results) {
@@ -44,43 +48,58 @@ export default class Home extends Component {
         amenities: results[3].allAmenities
       };
 
-      console.log("STATE", state);
       this.setState(state);
     } catch (error) {
-      console.log("ERROR", error);
       this.setState(error);
       //throw error;
     }
-
-    // let info = await client.doQuery(client.queries.site);
-    // console.log("SITE", info);
-    //   let cats = await client.doQuery(client.queries.categories);
-    // console.log("categories", cats);
-    // let results = await client.doQuery(client.queries.list);
-    // console.log("SITE", info);
-    // this.setState({ site: info._site, items: results.allRestaurants , categories:cats});
-    // return;
   }
 
   render() {
     let { site, items, categories, amenities, error } = this.state;
     let y = new Date().getUTCFullYear();
     let len = items && items.length ? items.length : 0;
-    let siteName = "";
-    if (site && site.globalSeo && site.globalSeo.siteName)
-      siteName = site.globalSeo.siteName;
+    let siteName = site ? site.globalSeo.siteName : "";
+    let meta = items && items.meta ? items.meta : [];
+    let favicons = site && site.favicons ? site.favicons : [];
 
     return (
       <div id="wrapper">
-        <Header />
+        <Helmet>
+          <title>{siteName}</title>
+          {meta.map((item, i) => {
+            if (item.tag != "title") {
+              return (
+                <meta
+                  key={"meta_" + i}
+                  name={item.attributes.property}
+                  content={item.attributes.content}
+                />
+              );
+            }
+          })}
+          {favicons.map((item, i) => {
+            <link
+              key={"fav_" + i}
+              rel={item.attributes.rel}
+              type={item.attributes.type}
+              href={item.attributes.href}
+            />;
+          })}
+        </Helmet>
 
-        {error && <div className="danger danger-text">{error}</div>}
+        <Header />
 
         <div className="clearfix" />
         <div className="fs-container">
           <div className="fs-inner-container content">
             <div className="fs-content">
-              <Search categories={categories} amenities={amenities} onSearch={this.onSearch.bind(this)}/>
+              {error && <div className="danger danger-text">{error}</div>}
+              <Search
+                categories={categories}
+                amenities={amenities}
+                onSearch={this.onSearch.bind(this)}
+              />
 
               <section className="listings-container margin-top-30">
                 <div className="row fs-switcher">

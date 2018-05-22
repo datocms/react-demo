@@ -22,3 +22,7 @@ Build:`yarn build`
 
 this create the build inthe `dist` folder.
 Deployable directly on surge, or netifly.
+
+
+## you can test your GraphQL at
+`const url = https://graphql.datocms.com/graphiql?apitoken=${DATO_API_TOKEN}`

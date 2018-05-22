@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
+import StarRatingComponent from "react-star-rating-component";
+
 import Header from "./header";
 import Footer from "./footer";
 import ReviewList from "./review_list";
@@ -7,9 +10,8 @@ import Sidebar from "./sidebar";
 import SimpleSlider from "./slider";
 import Menu from "./menu";
 import SimpleMap from "./simple_map";
-import StarRatingComponent from "react-star-rating-component";
 import client from "../utils";
-
+import * as snip from "../snip";
 export default class Detail extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +24,8 @@ export default class Detail extends Component {
     let { id } = this.props.match.params;
     console.log("ID", id);
     this.getData(id);
+    snip.init;
+    snip.getInfo;
   }
 
   async getData(id) {
@@ -36,12 +40,10 @@ export default class Detail extends Component {
     let { detail } = this.state;
     let { id } = this.props.match.params;
     let pageUrl = "http://localhost:3000/listing/" + id;
-
-    console.log(detail);
+    let meta = detail && detail.meta ? detail.meta : [];
     if (!detail)
       return (
         <div id="wrapper">
-          <Header />
           <div className="clearfix" />
           <div className="container">
             <div>loading...</div>;
@@ -50,6 +52,24 @@ export default class Detail extends Component {
       );
     return (
       <div id="wrapper">
+        <Header />
+        {meta && (
+          <Helmet>
+            <title>{detail.name}</title>
+            {meta.map(item => {
+              if (item.tag == "title") {
+                return <title>{item.content} </title>;
+              } else {
+                return (
+                  <meta
+                    name={item.attributes.property}
+                    content={item.attributes.content}
+                  />
+                );
+              }
+            })}
+          </Helmet>
+        )}
         <Header />
         <div className="clearfix" />
         {detail.images && <SimpleSlider images={detail.images} />}
@@ -70,7 +90,11 @@ export default class Detail extends Component {
                   </span>
                   <div className="star-rating" data-rating={detail.rating}>
                     <div className="rating-counter">
-                      <a href="#listing-reviews">(31 reviews)</a>
+                      <StarRatingComponent
+                        name="rate1"
+                        starCount={5}
+                        value={detail.rating}
+                      />
                     </div>
                   </div>
                 </div>

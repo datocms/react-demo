@@ -13,7 +13,6 @@ export default class Menu extends Component {
     let cats = Array.from(new Set(allCats));
     let { visible } = this.state;
 
-
     console.log("pageUrl", pageUrl);
     return (
       <div id="listing-pricing-list" className="listing-section">
@@ -33,19 +32,19 @@ export default class Menu extends Component {
                   <ul>
                     {elems.map((elem, index) => (
                       <li key={`cat-item-${index}`}>
-
                         <h5>{elem.name}</h5> <p>{elem.description}</p>
                         <span>${elem.price}</span>
                         <button
-                          className="snipcart-add-item"
+                          className="like-button snipcart-add-item"
                           data-item-id={elem.id}
                           data-item-name={elem.name}
                           data-item-price={elem.price}
                           data-item-weight={1}
                           data-item-url={pageUrl}
                           data-item-description={elem.description}
+
                         >
-                          Buy {elem.name}
+                          <i className="sl sl-icon-basket" /> Buy {elem.name}
                         </button>
                       </li>
                     ))}

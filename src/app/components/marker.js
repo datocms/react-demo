@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 
-const MARKER_SIZE = 40;
-const greatPlaceStyle = {
-  position: "absolute",
-  width: MARKER_SIZE,
-  height: MARKER_SIZE,
-  left: -MARKER_SIZE / 2,
-  top: -MARKER_SIZE / 2
-};
-
-export default class Marker extends Component {
+export default class MyMarker extends Component {
   render() {
-    return <div style={greatPlaceStyle}>{this.props.text}</div>;
+    //let {icon} = this.props
+    return (
+      <div className="map-marker-container">
+        <div className="marker-container">
+          <div className="marker-card">
+            <div className="front face">
+              <i className="im im-icon-Coffee" />
+            </div>
+            <div className="back face">
+              <i className="im im-icon-Coffee" />
+            </div>
+            <div className="marker-arrow" />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
