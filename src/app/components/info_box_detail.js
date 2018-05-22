@@ -13,12 +13,10 @@ const categories_icons = [
 
 export default class InfoBoxDetail extends Component {
   getIcon(name) {
-    console.log("get icon", name);
-    let e = null;
-    if (name) e = categories_icons.find(cat => cat.name == name);
-    if (e && e.icon) return "im im-icon-" + e.icon;
-
-    return "";
+    let icon = "";
+    let e = categories_icons.find(cat => cat.name == name);
+    if (e && e.icon) icon = "im im-icon-" + e.icon;
+    return icon;
   }
 
   render() {

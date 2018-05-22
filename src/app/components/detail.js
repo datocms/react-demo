@@ -12,6 +12,7 @@ import Menu from "./menu";
 import SimpleMap from "./simple_map";
 import client from "../utils";
 import * as snip from "../snip";
+
 export default class Detail extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,6 @@ export default class Detail extends Component {
 
   componentDidMount() {
     let { id } = this.props.match.params;
-    console.log("ID", id);
     this.getData(id);
     snip.init;
     snip.getInfo;
@@ -36,9 +36,7 @@ export default class Detail extends Component {
 
   async getData(id) {
     let results = await client.doQuery(client.queries.detail(id));
-    console.log("results", results);
     let detail = results.detail[0];
-    console.log("detail", detail);
     this.setState({ detail });
   }
 
@@ -60,16 +58,14 @@ export default class Detail extends Component {
       );
     return (
       <div id="wrapper">
-        <Header />
         {meta && (
           <Helmet>
             <title>{detail.name}</title>
-            {meta.map(item => {
-              if (item.tag == "title") {
-                return <title>{item.content} </title>;
-              } else {
+            {meta.map((item, i) => {
+              if (item.tag != "title") {
                 return (
                   <meta
+                    key={"meta_" + i}
                     name={item.attributes.property}
                     content={item.attributes.content}
                   />

@@ -12,8 +12,6 @@ export default class Menu extends Component {
     let allCats = items.map(i => i.category.name);
     let cats = Array.from(new Set(allCats));
     let { visible } = this.state;
-
-    console.log("pageUrl", pageUrl);
     return (
       <div id="listing-pricing-list" className="listing-section">
         <h3 className="listing-desc-headline margin-top-70 margin-bottom-30">
@@ -23,9 +21,7 @@ export default class Menu extends Component {
         <div className={`show-more ${visible ? "visible" : ""}`}>
           <div className="pricing-list-container">
             {cats.map((cat, i) => {
-              console.log(`${i} - ${cat}`);
               let elems = items.filter(item => item.category.name === cat);
-              console.log(elems);
               return (
                 <div key={`cat-${i}`}>
                   <h4>{cat}</h4>
@@ -56,7 +52,6 @@ export default class Menu extends Component {
         </div>
         <button
           onClick={() => {
-            console.log("click!");
             this.setState({ visible: !visible });
           }}
           className="show-more-button"

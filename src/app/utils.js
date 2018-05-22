@@ -12,12 +12,9 @@ const doQuery = async q => {
       },
       body: JSON.stringify({ query: q })
     }).then(res => res.json());
-
-    // console.log(res.data);
     return res.data;
   } catch (error) {
-    console.log("QUERY ERROR" , error);
-    console.log("for query" , q);
+    console.log("QUERY ERROR" , error, "on query" , q);
     throw error;
   }
 };

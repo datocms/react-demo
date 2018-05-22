@@ -1,5 +1,4 @@
 const search = (cat, amenity, text) => {
-  console.log("SEARCH", cat, amenity, text);
   if (!cat && !amenity && !text) {
     return;
   }
@@ -8,16 +7,16 @@ const search = (cat, amenity, text) => {
   if (cat && cat.length) {
     filters.push(`category: {in: [${cat.join(",")}]}`);
   }
+
   // if (amenity && amenity.length) {
   //   filters.push(`amenities: {in: [${amenity.join(",")}]}`);
   // }
+
   if (text) {
     filters.push(`name: {matches: {pattern: "${text}", caseSensitive: false}}`);
   }
 
-  console.log(filters);
-
-  let q = `{
+  return `{
   allPois(filter: {${filters.join(",")}}) {
     id
     name
@@ -46,9 +45,6 @@ const search = (cat, amenity, text) => {
     }
   }
 }`;
-
-  console.log(q);
-  return q;
 };
 
 const site = `{
@@ -97,6 +93,7 @@ const detail = id => `{
     name
     overview
     rating
+    verified
     images: imageGallery {
       url
     }

@@ -39,7 +39,6 @@ export default class Home extends Component {
         client.doQuery(client.queries.categories),
         client.doQuery(client.queries.amenities)
       ]);
-      console.log("RESULTS", results);
 
       let state = {
         site: results[0]._site,

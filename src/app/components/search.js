@@ -34,8 +34,6 @@ export default class Search extends Component {
     } catch (error) {
       throw error;
     }
-
-
   }
 
   handleChange(id, type) {
@@ -59,17 +57,6 @@ export default class Search extends Component {
   render() {
     let { categories, amenities } = this.props;
     let { dropdown } = this.state;
-
-    // categories = [
-    //   { name: "AA", id: "0" },
-    //   { name: "BB", id: "1" },
-    //   { name: "CC", id: "2" }
-    // ];
-    // amenities = [
-    //   { name: "DD", id: "3" },
-    //   { name: "EE", id: "4" },
-    //   { name: "FF", id: "5" }
-    // ];
 
     return (
       <section className="search">

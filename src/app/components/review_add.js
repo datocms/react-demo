@@ -34,7 +34,7 @@ export default class ReviewAdd extends Component {
                         <div className="add-review-photos margin-bottom-30">
                             <div className="photoUpload">
                                 <span>
-                                    <i className="sl sl-icon-arrow-up-circle" />{" "}
+                                    <i className="sl sl-icon-arrow-up-circle" />
                                     Upload Photos
                                 </span>
                                 <input type="file" className="upload" />
@@ -43,7 +43,14 @@ export default class ReviewAdd extends Component {
                     </div>
                 </div>
 
-                <form id="add-comment" className="add-comment">
+                <form
+                    id="add-comment"
+                    className="add-comment"
+                    onSubmit={e => {
+                        e.preventDefault();
+                        return;
+                    }}
+                >
                     <fieldset>
                         <div className="row">
                             <div className="col-md-6">
@@ -63,7 +70,15 @@ export default class ReviewAdd extends Component {
                         </div>
                     </fieldset>
 
-                    <button className="button">Submit Review</button>
+                    <button
+                        onClick={e => {
+                            e.preventDefault();
+                            return;
+                        }}
+                        className="button"
+                    >
+                        Submit Review
+                    </button>
                     <div className="clearfix" />
                 </form>
             </div>

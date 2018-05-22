@@ -1,8 +1,3 @@
-// const init = () => {
-//   let listener = document.addEventListener("snipcart.ready", e => {
-//     console.log("snipcart initialized");
-//   });
-// };
 
 const init = () => {
   Snipcart.api.cart.currency("usd");
