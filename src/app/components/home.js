@@ -7,7 +7,6 @@ import Card from "./card";
 import Search from "./search";
 import Paginate from "./paginate";
 import client from "../utils";
-import * as snip from "../snip";
 
 export default class Home extends Component {
   constructor(props) {
@@ -23,8 +22,6 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.getData();
-    snip.init;
-    snip.getInfo;
   }
 
   onSearch(results) {

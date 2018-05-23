@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { compose, withProps, withStateHandlers, withHandlers } from "recompose";
+import {
+  compose,
+  withProps,
+  withStateHandlers,
+  withHandlers,
+  lifecycle
+} from "recompose";
 import {
   withScriptjs,
   withGoogleMap,
@@ -9,31 +15,106 @@ import {
 } from "react-google-maps";
 import InfoBoxDetail from "./info_box_detail";
 import MyMarker from "./marker";
+
+import nightlife from "../../assets/images/map_icons/nightlife.svg";
+import coffee from "../../assets/images/map_icons/coffee.svg";
+import events from "../../assets/images/map_icons/events.svg";
+import hotel from "../../assets/images/map_icons/hotel.svg";
+import airport from "../../assets/images/map_icons/airport.svg";
+import food from "../../assets/images/map_icons/food.svg";
+
 const { GOOGLE_API_KEY } = process.env;
-
-
 const ny = { lat: 40.7127753, lng: -74.0059728 };
-const MyMapComponent = compose(withScriptjs, withGoogleMap)(props => {
-  return (
-    <GoogleMap defaultZoom={8} defaultCenter={ny}>
-      {props.items &&
-        props.items.map(item => (
-          <Marker
-            key={item.id}
-            position={{
-              lat: item.location.latitude,
-              lng: item.location.longitude
-            }}
-            onClick={() => props.onMarkerClick(item.id)}
+const MyMapComponent = compose(
+                               /*
+  lifecycle({
+    componentWillMount() {
+      this.setState({
+        fit: map => {
+          console.log("fit markers", map);
+          const bounds = new window.google.maps.LatLngBounds();
+          if (map && map.props.children) {
+            map.props.children.forEach(child => {
+              if (child.type === Marker) {
+                bounds.extend(
+                  new window.google.maps.LatLng(
+                    child.props.position.lat,
+                    child.props.position.lng
+                  )
+                );
+              }
+            });
+            map.fitBounds(bounds);
+          }
+        }
+      });
+    }
+  }),
+*/
+  withScriptjs,
+  withGoogleMap,
+  withHandlers({
+    onMapMounted: props => ref => {
+      const bounds = new google.maps.LatLngBounds();
+      if (props.items) {
+        props.items.forEach(item => {
+          bounds.extend({
+            lat: item.coordinates.latitude,
+            lng: item.coordinates.longitude
+          });
+        });
 
-          >
-            {item.id == props.markerShown && (
-              <InfoWindow>
-                <InfoBoxDetail item={item} />
-              </InfoWindow>
-            )}
-          </Marker>
-        ))}
+        ref && ref.fitBounds(bounds);
+      }
+    }
+  })
+)(props => {
+  return (
+    <GoogleMap defaultCenter={ny} defaultZoom={9} ref={props.onMapMounted}>
+      {props.items &&
+        props.items.map(item => {
+          let icon = food;
+          switch (item.category.name) {
+            case "Airport":
+              icon = airport;
+              break;
+            case "Events":
+              icon = events;
+              break;
+            case "Nightlife":
+              icon = nightlife;
+              break;
+            case "Hotels":
+              icon = hotel;
+              break;
+            case "Coffee":
+              icon = coffee;
+              break;
+            case "Eat & Drink":
+              icon = coffee;
+              break;
+            default:
+              icon = null;
+              break;
+          }
+          return (
+            <Marker
+              key={item.id}
+              position={{
+                lat: item.location.latitude,
+                lng: item.location.longitude
+              }}
+              onClick={() => props.onMarkerClick(item.id)}
+              icon={icon}
+            >
+              {item.id == props.markerShown && (
+                <InfoWindow>
+                  <InfoBoxDetail item={item} />
+                </InfoWindow>
+              )}
+            </Marker>
+          );
+        })}
     </GoogleMap>
   );
 });
@@ -54,6 +135,7 @@ export default class BigMap extends Component {
 
   render() {
     let { items } = this.props;
+
     return (
       <div className="fs-inner-container map-fixed">
         <MyMapComponent

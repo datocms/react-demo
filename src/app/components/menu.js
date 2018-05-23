@@ -8,7 +8,7 @@ export default class Menu extends Component {
   }
 
   render() {
-    let { items, pageUrl } = this.props;
+    let { items } = this.props;
     let allCats = items.map(i => i.category.name);
     let cats = Array.from(new Set(allCats));
     let { visible } = this.state;
@@ -30,18 +30,6 @@ export default class Menu extends Component {
                       <li key={`cat-item-${index}`}>
                         <h5>{elem.name}</h5> <p>{elem.description}</p>
                         <span>${elem.price}</span>
-                        <button
-                          className="like-button snipcart-add-item"
-                          data-item-id={elem.id}
-                          data-item-name={elem.name}
-                          data-item-price={elem.price}
-                          data-item-weight={1}
-                          data-item-url={pageUrl}
-                          data-item-description={elem.description}
-
-                        >
-                          <i className="sl sl-icon-basket" /> Buy {elem.name}
-                        </button>
                       </li>
                     ))}
                   </ul>

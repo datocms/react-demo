@@ -2,23 +2,7 @@ import React, { Component } from "react";
 import StarRatingComponent from "react-star-rating-component";
 import { Link } from "react-router-dom";
 
-const categories_icons = [
-  { name: "Restaurant", icon: "Chef-Hat" },
-  { name: "Eat & Drinks", icon: "Hamburger" },
-  { name: "Events", icon: "Electric-Guitar" },
-  { name: "Nightlife", icon: "Electric-Guitar" },
-  { name: "Hotel", icon: "Home-2" },
-  { name: "Coffee", icon: "Coffee" }
-];
-
 export default class InfoBoxDetail extends Component {
-  getIcon(name) {
-    let icon = "";
-    let e = categories_icons.find(cat => cat.name == name);
-    if (e && e.icon) icon = "im im-icon-" + e.icon;
-    return icon;
-  }
-
   render() {
     let { item } = this.props;
     return (
@@ -52,9 +36,6 @@ export default class InfoBoxDetail extends Component {
         <div className="listing-content">
           <div className="listing-title">
             <div>
-              <span>
-                <i className={this.getIcon(item.category.name)} />
-              </span>
               <span>{item.category.name}</span>
             </div>
             <h3>{item.name}</h3>

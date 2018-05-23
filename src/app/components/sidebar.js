@@ -17,7 +17,7 @@ export default class Sidebar extends Component {
             <i className="sl sl-icon-check" /> Verified Listing
           </div>
         )}
-        <BookNow />
+
         <Opening openingHours={this.props.detail.openingHours} />
         <Contact owner={this.props.detail.owner} />
         <Share />

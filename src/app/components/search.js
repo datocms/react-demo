@@ -76,7 +76,7 @@ export default class Search extends Component {
                   </div>
                 </div>
                 <div className="col-fs-2">
-                  <button className="button" type="submit">
+                  <button type="submit" className="button">
                     Search
                   </button>
                 </div>
@@ -114,13 +114,17 @@ export default class Search extends Component {
                       <div className="panel-buttons">
                         <button
                           className="panel-cancel"
-                          onClick={() => this.toggleDropdown(0)}
+                          onClick={e => {
+                            e.preventDefault();
+                            this.toggleDropdown(0);
+                          }}
                         >
                           Cancel
                         </button>
                         <button
+                          type="submit"
                           className="panel-apply"
-                          onClick={() => {
+                          onClick={e => {
                             this.toggleDropdown(0);
                           }}
                         >
@@ -160,14 +164,17 @@ export default class Search extends Component {
                       <div className="panel-buttons">
                         <button
                           className="panel-cancel"
-                          onClick={() => this.toggleDropdown(0)}
+                          onClick={e => {
+                            e.preventDefault();
+                            this.toggleDropdown(0);
+                          }}
                         >
                           Cancel
                         </button>
                         <button
+                          type="submit"
                           className="panel-apply"
                           onClick={e => {
-                            e.preventDefault();
                             this.toggleDropdown(0);
                           }}
                         >

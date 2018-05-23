@@ -16,45 +16,6 @@ export default class Footer extends Component {
             </div>
 
             <div className="col-md-4 col-sm-6 ">
-              <h4>Helpful Links</h4>
-              <ul className="footer-links">
-                <li>
-                  <a href="listings-single-page.html#">Login</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Sign Up</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">My Account</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Add Listing</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Pricing</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Privacy Policy</a>
-                </li>
-              </ul>
-
-              <ul className="footer-links">
-                <li>
-                  <a href="listings-single-page.html#">FAQ</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Blog</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Our Partners</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">How It Works</a>
-                </li>
-                <li>
-                  <a href="listings-single-page.html#">Contact</a>
-                </li>
-              </ul>
               <div className="clearfix" />
             </div>
 
@@ -64,36 +25,33 @@ export default class Footer extends Component {
                 <span>12345 Little Lonsdale St, Melbourne</span>
                 Phone: <span>(123) 123-456 </span>
                 E-Mail:<span>
-                  {" "}
-                  <a href="listings-single-page.html#">
                     <span
                       className="__cf_email__"
                       data-cfemail="4e212828272d2b0e2b362f233e222b602d2123"
                     >
                       [email&#160;protected]
                     </span>
-                  </a>{" "}
                 </span>
               </div>
 
               <ul className="social-icons margin-top-20">
                 <li>
-                  <a className="facebook" href="listings-single-page.html#">
+                  <a className="facebook" href="#">
                     <i className="icon-facebook" />
                   </a>
                 </li>
                 <li>
-                  <a className="twitter" href="listings-single-page.html#">
+                  <a className="twitter" href="#">
                     <i className="icon-twitter" />
                   </a>
                 </li>
                 <li>
-                  <a className="gplus" href="listings-single-page.html#">
+                  <a className="gplus" href="#">
                     <i className="icon-gplus" />
                   </a>
                 </li>
                 <li>
-                  <a className="vimeo" href="listings-single-page.html#">
+                  <a className="vimeo" href="#">
                     <i className="icon-vimeo" />
                   </a>
                 </li>

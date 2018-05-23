@@ -11,7 +11,6 @@ import SimpleSlider from "./slider";
 import Menu from "./menu";
 import SimpleMap from "./simple_map";
 import client from "../utils";
-import * as snip from "../snip";
 
 export default class Detail extends Component {
   constructor(props) {
@@ -24,14 +23,6 @@ export default class Detail extends Component {
   componentDidMount() {
     let { id } = this.props.match.params;
     this.getData(id);
-    snip.init;
-    snip.getInfo;
-  }
-
-  getHost() {
-    if (window)
-      return window.location.protocol + "//" + window.location.hostname;
-    return "";
   }
 
   async getData(id) {
@@ -41,11 +32,8 @@ export default class Detail extends Component {
   }
 
   render() {
-    let { detail } = this.state;
     let { id } = this.props.match.params;
-
-    let host = this.getHost();
-    let pageUrl = host + "/listing/" + id;
+    let { detail } = this.state;
     let meta = detail && detail.meta ? detail.meta : [];
     if (!detail)
       return (
@@ -137,7 +125,7 @@ export default class Detail extends Component {
                 </div>
               )}
 
-              {id && <Menu items={detail.menu} pageUrl={pageUrl} />}
+              <Menu items={detail.menu} />
 
               <div id="listing-location" className="listing-section">
                 <h3 className="listing-desc-headline margin-top-60 margin-bottom-30">
