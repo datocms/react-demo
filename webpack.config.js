@@ -1,11 +1,9 @@
 const path = require("path");
 const fs = require("fs");
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
-
 const paths = {
   DIST: path.resolve(__dirname, "dist"),
   SRC: path.resolve(__dirname, "src"),
@@ -15,7 +13,7 @@ const paths = {
 // Webpack configuration
 module.exports = env => {
   let env_file = "./.env";
-  if (env && env.dev) env_file += ".dev";
+
   if (fs.existsSync(env_file)) {
     require("dotenv").config({ path: env_file });
   }

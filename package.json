@@ -32,8 +32,8 @@
         "webpack-dev-server": "^2.9.1"
     },
     "scripts": {
-        "dev": "webpack-dev-server --env.dev --port 3000",
-        "build": "webpack --env.production"
+        "dev": "webpack-dev-server --port 3000",
+        "build": "webpack"
     },
     "dependencies": {
         "google-map-react": "^1.0.2",

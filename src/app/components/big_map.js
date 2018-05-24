@@ -26,31 +26,6 @@ import food from "../../assets/images/map_icons/food.svg";
 const { GOOGLE_API_KEY } = process.env;
 const ny = { lat: 40.7127753, lng: -74.0059728 };
 const MyMapComponent = compose(
-                               /*
-  lifecycle({
-    componentWillMount() {
-      this.setState({
-        fit: map => {
-          console.log("fit markers", map);
-          const bounds = new window.google.maps.LatLngBounds();
-          if (map && map.props.children) {
-            map.props.children.forEach(child => {
-              if (child.type === Marker) {
-                bounds.extend(
-                  new window.google.maps.LatLng(
-                    child.props.position.lat,
-                    child.props.position.lng
-                  )
-                );
-              }
-            });
-            map.fitBounds(bounds);
-          }
-        }
-      });
-    }
-  }),
-*/
   withScriptjs,
   withGoogleMap,
   withHandlers({
@@ -59,8 +34,8 @@ const MyMapComponent = compose(
       if (props.items) {
         props.items.forEach(item => {
           bounds.extend({
-            lat: item.coordinates.latitude,
-            lng: item.coordinates.longitude
+            lat: item.location.latitude,
+            lng: item.location.longitude
           });
         });
 
@@ -91,7 +66,7 @@ const MyMapComponent = compose(
               icon = coffee;
               break;
             case "Eat & Drink":
-              icon = coffee;
+              icon = food;
               break;
             default:
               icon = null;
