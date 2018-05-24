@@ -1,4 +1,4 @@
-This app is a Demo app for using DatoCMS contents via GraphQL api on an Express.js app.
+This app is a Demo app for using DatoCMS contents via GraphQL api on a ReactJS app.
 
 ## Stack
 - webpack
