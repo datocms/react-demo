@@ -1,51 +1,59 @@
-const search = (cat, amenity, text) => {
-  if (!cat && !amenity && !text) {
-    return;
-  }
-  let filters = [];
-
-  if (cat && cat.length) {
-    filters.push(`category: {in: [${cat.join(",")}]}`);
-  }
-
-  // if (amenity && amenity.length) {
-  //   filters.push(`amenities: {in: [${amenity.join(",")}]}`);
-  // }
-
-  if (text) {
-    filters.push(`name: {matches: {pattern: "${text}", caseSensitive: false}}`);
-  }
-
-  return `{
-  allPois(filter: {${filters.join(",")}}) {
-    id
-    name
-    when
-    verified
-    coverImage{
-      url
-    }
-    updatedAt
-    rating
-    images: imageGallery {
-      url
-    }
-    address
-    location {
-      latitude
-      longitude
-    }
-    category {
+const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!) {
+      allPois(filter: {
+        category: {in: $categories} ,
+        amenities: {anyIn: $amenities},
+        name: {matches: {pattern: $pattern, caseSensitive: false}}
+       }) {
       id
       name
-    }
-    amenities{
-      id
-      name
-    }
+      when
+      verified
+      coverImage{
+        url
+      }
+      updatedAt
+      rating
+      images: imageGallery {
+        url
+      }
+      address
+      location {
+        latitude
+        longitude
+      }
+      category {
+        id
+        name
+      }
+      amenities{
+        id
+        name
+      }
   }
-}`;
-};
+ }`;
+
+ /*
+ allPois(filter: { OR: [
+        {
+            category: {in: $categories},
+            amenities: {anyIn: $amenities}
+        },
+        {name: {matches: {pattern: $pattern, caseSensitive: false}}}
+      ]}) {
+
+    allPois(filter: {
+      category: {in: $categories} ,
+      amenities: {anyIn: $amenities},
+      name: {matches: {pattern: $pattern, caseSensitive: false}}
+     }) {
+
+  allPois(filter: {
+    OR: [
+      {category: {in: $categories }},
+      {amenities: {anyIn: $amenities }},
+      {name: {matches: {pattern: $pattern, caseSensitive: false}}}
+    ]}) {
+ */
 
 const site = `{
   _site {
@@ -84,10 +92,10 @@ const categories = `{
   }
 }`;
 
-const detail = id => `{
+const detail = `query getDetail($id: ID) {
   detail: allPois(
     filter: {
-      id: { eq: ${id} }
+      id: { eq: $id }
     }) {
     id
     name
@@ -146,8 +154,7 @@ const detail = id => `{
       attributes
     }
   }
-}
-`;
+}`;
 
 const list = `{
   allPois(orderBy: updatedAt_DESC) {

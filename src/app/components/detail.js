@@ -10,7 +10,7 @@ import Sidebar from "./sidebar";
 import SimpleSlider from "./slider";
 import Menu from "./menu";
 import SimpleMap from "./simple_map";
-import client from "../utils";
+import client from "../request";
 
 export default class Detail extends Component {
   constructor(props) {
@@ -26,9 +26,12 @@ export default class Detail extends Component {
   }
 
   async getData(id) {
-    let results = await client.doQuery(client.queries.detail(id));
-    let detail = results.detail[0];
-    this.setState({ detail });
+    let results = await client.doQuery(client.queries.detail, { id: id });
+    console.log("DETAIL RESULTS", results);
+    if (results.data) {
+      let detail = results.data.detail[0];
+      this.setState({ detail });
+    }
   }
 
   render() {
@@ -40,7 +43,7 @@ export default class Detail extends Component {
         <div id="wrapper">
           <div className="clearfix" />
           <div className="container">
-            <div>loading...</div>;
+            <div>loading...</div>
           </div>
         </div>
       );

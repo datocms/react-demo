@@ -10,7 +10,6 @@ export default class Routes extends Component {
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/detail/:id" render={props => <Detail {...props} />} />
-
 				</Switch>
 			</BrowserRouter>
 		);

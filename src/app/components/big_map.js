@@ -93,7 +93,6 @@ const MyMapComponent = compose(
     </GoogleMap>
   );
 });
-//
 
 export default class BigMap extends Component {
   constructor(props) {

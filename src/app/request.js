@@ -1,20 +1,21 @@
 const { DATO_API_TOKEN } = process.env;
 import queries from "./queries";
 
-const doQuery = async q => {
+const doQuery = async (q, v) => {
+  console.log("query", q);
+  console.log("variables", v);
   try {
-    let res = await fetch("https://graphql.datocms.com", {
+    return await fetch("https://graphql.datocms.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${DATO_API_TOKEN}`
       },
-      body: JSON.stringify({ query: q })
+      body: JSON.stringify({ query: q, variables: v })
     }).then(res => res.json());
-    return res.data;
   } catch (error) {
-    console.log("QUERY ERROR" , error, "on query" , q);
+    console.log("QUERY ERROR", error, "on query", q);
     throw error;
   }
 };

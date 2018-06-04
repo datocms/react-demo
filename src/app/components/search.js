@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import client from "../utils";
 
 export default class Search extends Component {
   constructor(props) {
     super(props);
+
+    let { categories, amenities } = this.props;
+    console.log(categories, amenities);
+    let checked_categories = categories.map(i => i.id);
+    let checked_amenities = amenities.map(i => i.id);
+
     this.state = {
       dropdown: 0,
       search_text: null,
-      checked_categories: [],
-      checked_amenities: []
+      checked_categories,
+      checked_amenities
     };
   }
 
@@ -22,18 +27,12 @@ export default class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { checked_categories, checked_amenities, search_text } = this.state;
-    this.searchData(checked_categories, checked_amenities, search_text);
-  }
 
-  async searchData(cat, amenity, text) {
-    try {
-      let results = await client.doQuery(
-        client.queries.search(cat, amenity, text)
-      );
-      this.props.onSearch(results);
-    } catch (error) {
-      throw error;
-    }
+    this.props.onSearch({
+      categories: checked_categories,
+      amenities: checked_amenities,
+      pattern: search_text ? search_text : ""
+    });
   }
 
   handleChange(id, type) {
@@ -83,9 +82,9 @@ export default class Search extends Component {
 
                 <div className="col-fs-12">
                   <div
-                    className={`panel-dropdown ${dropdown == 1
-                      ? "active"
-                      : ""}`}
+                    className={`panel-dropdown ${
+                      dropdown == 1 ? "active" : ""
+                    }`}
                   >
                     <a href="#" onClick={() => this.toggleDropdown(1)}>
                       Categories
@@ -99,7 +98,8 @@ export default class Search extends Component {
                                 key={"cat_" + cat.id}
                                 id={"cat_" + cat.id}
                                 onClick={e =>
-                                  this.handleChange(cat.id, "categories")}
+                                  this.handleChange(cat.id, "categories")
+                                }
                               >
                                 <input
                                   type="checkbox"
@@ -134,9 +134,9 @@ export default class Search extends Component {
                     </div>
                   </div>
                   <div
-                    className={`panel-dropdown wide  ${dropdown == 2
-                      ? "active"
-                      : ""}`}
+                    className={`panel-dropdown wide  ${
+                      dropdown == 2 ? "active" : ""
+                    }`}
                   >
                     <a href="#" onClick={() => this.toggleDropdown(2)}>
                       More Filters
@@ -150,7 +150,8 @@ export default class Search extends Component {
                               key={"amn_" + f.id}
                               id={"amn_" + f.id}
                               onClick={e =>
-                                this.handleChange(f.id, "amenities")}
+                                this.handleChange(f.id, "amenities")
+                              }
                             >
                               <input
                                 type="checkbox"

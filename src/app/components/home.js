@@ -6,7 +6,7 @@ import BigMap from "./big_map";
 import Card from "./card";
 import Search from "./search";
 import Paginate from "./paginate";
-import client from "../utils";
+import client from "../request";
 
 export default class Home extends Component {
   constructor(props) {
@@ -16,7 +16,8 @@ export default class Home extends Component {
       items: null,
       categories: null,
       amenities: null,
-      error: null
+      error: null,
+      loading: true
     };
   }
 
@@ -24,8 +25,24 @@ export default class Home extends Component {
     this.getData();
   }
 
-  onSearch(results) {
-    this.setState({ items: results.allPois });
+  onSearch(filters) {
+    this.setState({ loading: true });
+    this.searchData(filters);
+  }
+
+  async searchData(params) {
+    try {
+      let results = await client.doQuery(client.queries.search, params);
+      console.log("RESULTS", results);
+      let state = {
+        loading: false
+      };
+      if (results.data) state = { items: results.data.allPois, loading: false };
+      this.setState(state);
+    } catch (error) {
+      this.setState({ loading: false });
+      throw error;
+    }
   }
 
   async getData() {
@@ -38,21 +55,22 @@ export default class Home extends Component {
       ]);
 
       let state = {
-        site: results[0]._site,
-        items: results[1].allPois,
-        categories: results[2].allCategories,
-        amenities: results[3].allAmenities
+        site: results[0].data._site,
+        items: results[1].data.allPois,
+        categories: results[2].data.allCategories,
+        amenities: results[3].data.allAmenities,
+        loading: false
       };
 
       this.setState(state);
     } catch (error) {
-      this.setState(error);
-      //throw error;
+      this.setState(error, { loading: false });
+      throw error;
     }
   }
 
   render() {
-    let { site, items, categories, amenities, error } = this.state;
+    let { site, items, categories, amenities, error, loading } = this.state;
     let y = new Date().getUTCFullYear();
     let len = items && items.length ? items.length : 0;
     let siteName = site ? site.globalSeo.siteName : "";
@@ -91,16 +109,22 @@ export default class Home extends Component {
           <div className="fs-inner-container content">
             <div className="fs-content">
               {error && <div className="danger danger-text">{error}</div>}
-              <Search
-                categories={categories}
-                amenities={amenities}
-                onSearch={this.onSearch.bind(this)}
-              />
+              {categories &&
+                amenities && (
+                  <Search
+                    categories={categories}
+                    amenities={amenities}
+                    onSearch={this.onSearch.bind(this)}
+                  />
+                )}
 
               <section className="listings-container margin-top-30">
                 <div className="row fs-switcher">
                   <div className="col-md-6">
-                    <p className="showing-results">({len}) Results Found </p>
+                    <div className="showing-results">
+                      {loading && <h4>Loading...</h4>}
+                    </div>
+                    <p className="showing-results">({len}) Results Found</p>
                   </div>
                 </div>
                 <div className="row fs-listings">
