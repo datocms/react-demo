@@ -27,7 +27,7 @@ export default class Detail extends Component {
 
   async getData(id) {
     let results = await client.doQuery(client.queries.detail, { id: id });
-    console.log("DETAIL RESULTS", results);
+
     if (results.data) {
       let detail = results.data.detail[0];
       this.setState({ detail });
@@ -38,6 +38,7 @@ export default class Detail extends Component {
     let { id } = this.props.match.params;
     let { detail } = this.state;
     let meta = detail && detail.meta ? detail.meta : [];
+
     if (!detail)
       return (
         <div id="wrapper">
@@ -94,7 +95,6 @@ export default class Detail extends Component {
                   </div>
                 </div>
               </div>
-
               <div id="listing-nav" className="listing-nav-container">
                 <ul className="listing-nav">
                   <li>
@@ -116,7 +116,6 @@ export default class Detail extends Component {
                   </li>
                 </ul>
               </div>
-
               {detail.amenities && (
                 <div id="listing-overview" className="listing-section">
                   <p>{detail.overview}</p>
@@ -127,14 +126,11 @@ export default class Detail extends Component {
                   </ul>
                 </div>
               )}
-
               <Menu items={detail.menu} />
-
               <div id="listing-location" className="listing-section">
                 <h3 className="listing-desc-headline margin-top-60 margin-bottom-30">
                   Location
                 </h3>
-
                 <div id="singleListingMap-container">
                   <SimpleMap detail={detail} />
                   <a href="#" id="streetView">
@@ -142,7 +138,6 @@ export default class Detail extends Component {
                   </a>
                 </div>
               </div>
-
               <ReviewList />
               <ReviewAdd />
             </div>
