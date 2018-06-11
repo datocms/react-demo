@@ -23,7 +23,7 @@ import hotel from "../../assets/images/map_icons/hotel.svg";
 import airport from "../../assets/images/map_icons/airport.svg";
 import food from "../../assets/images/map_icons/food.svg";
 
-const { GOOGLE_API_KEY } = process.env;
+
 const ny = { lat: 40.7127753, lng: -74.0059728 };
 const MyMapComponent = compose(
   withScriptjs,
@@ -116,7 +116,7 @@ export default class BigMap extends Component {
           markerShown={this.state.markerShown}
           onMarkerClick={this.handleMarkerClick.bind(this)}
           items={items}
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places`}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={
             <div id="map-container" style={{ height: `100%` }} />
