@@ -1,39 +1,39 @@
 const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!) {
-      allPois(filter: {
-        category: {in: $categories} ,
-        amenities: {anyIn: $amenities},
-        name: {matches: {pattern: $pattern, caseSensitive: false}}
-       }) {
+  allPois(filter: {
+    category: {in: $categories} ,
+    amenities: {anyIn: $amenities},
+    name: {matches: {pattern: $pattern, caseSensitive: false}}
+   }) {
+    id
+    name
+    when
+    verified
+    coverImage {
+      url
+    }
+    updatedAt
+    rating
+    images: imageGallery {
+      url
+    }
+    address
+    location {
+      latitude
+      longitude
+    }
+    category {
       id
       name
-      when
-      verified
-      coverImage{
-        url
-      }
-      updatedAt
-      rating
-      images: imageGallery {
-        url
-      }
-      address
-      location {
-        latitude
-        longitude
-      }
-      category {
-        id
-        name
-      }
-      amenities{
-        id
-        name
-      }
+    }
+    amenities{
+      id
+      name
+    }
   }
  }`;
 
 const site = `{
-  _site {
+  site: _site {
     globalSeo {
       facebookPageUrl
       siteName

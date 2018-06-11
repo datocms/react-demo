@@ -55,7 +55,7 @@ export default class Home extends Component {
       ]);
 
       let state = {
-        site: results[0].data._site,
+        site: results[0].data.site,
         items: results[1].data.allPois,
         categories: results[2].data.allCategories,
         amenities: results[3].data.allAmenities,
@@ -71,7 +71,6 @@ export default class Home extends Component {
 
   render() {
     let { site, items, categories, amenities, error, loading } = this.state;
-    let y = new Date().getUTCFullYear();
     let len = items && items.length ? items.length : 0;
     let siteName = site ? site.globalSeo.siteName : "";
     let meta = items && items.meta ? items.meta : [];
@@ -139,7 +138,7 @@ export default class Home extends Component {
                     <Paginate />
                     <div className="clearfix" />
                     <div className="copyrights margin-top-0">
-                      © {y} {siteName}. All Rights Reserved.
+                      © {new Date().getUTCFullYear()} {siteName}. All Rights Reserved.
                     </div>
                   </div>
                 </div>
