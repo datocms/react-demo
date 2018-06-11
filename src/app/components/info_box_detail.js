@@ -15,11 +15,6 @@ export default class InfoBoxDetail extends Component {
         }}
       >
         <Link to={"/detail/" + item.id} className="listing-img-container">
-          {/*
-          <div className="infoBox-close">
-            <i className="fa fa-times" />
-          </div>
-          */}
           <img
             src={item.coverImage.url}
             style={{

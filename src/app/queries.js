@@ -32,29 +32,6 @@ const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: Str
   }
  }`;
 
- /*
- allPois(filter: { OR: [
-        {
-            category: {in: $categories},
-            amenities: {anyIn: $amenities}
-        },
-        {name: {matches: {pattern: $pattern, caseSensitive: false}}}
-      ]}) {
-
-    allPois(filter: {
-      category: {in: $categories} ,
-      amenities: {anyIn: $amenities},
-      name: {matches: {pattern: $pattern, caseSensitive: false}}
-     }) {
-
-  allPois(filter: {
-    OR: [
-      {category: {in: $categories }},
-      {amenities: {anyIn: $amenities }},
-      {name: {matches: {pattern: $pattern, caseSensitive: false}}}
-    ]}) {
- */
-
 const site = `{
   _site {
     globalSeo {

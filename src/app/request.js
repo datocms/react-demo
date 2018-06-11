@@ -2,8 +2,6 @@ const { DATO_API_TOKEN } = process.env;
 import queries from "./queries";
 
 const doQuery = async (q, v) => {
-  console.log("query", q);
-  console.log("variables", v);
   try {
     return await fetch("https://graphql.datocms.com", {
       method: "POST",

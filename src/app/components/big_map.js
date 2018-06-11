@@ -103,7 +103,6 @@ export default class BigMap extends Component {
   }
 
   handleMarkerClick(id) {
-    console.log("click");
     this.setState({ markerShown: id });
   }
 

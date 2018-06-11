@@ -24,7 +24,6 @@ export default class SimpleSlider extends Component {
       <div className="listing-slider margin-bottom-0">
         <Slider {...opts}>
           {this.props.images.map((img, i) => {
-            //let s = { backgroundImage: `url(${img.url})` };
             return (
               <div key={i} className="item crop">
                 <img className="slide_img" src={img.url} />

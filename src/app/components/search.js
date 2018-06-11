@@ -105,6 +105,7 @@ export default class Search extends Component {
                                   type="checkbox"
                                   name={`cat_${cat.id}`}
                                   checked={this.isChecked(cat.id, "categories")}
+                                  readOnly
                                 />
                                 <label>{cat.name}</label>
                               </div>

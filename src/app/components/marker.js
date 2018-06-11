@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 export default class MyMarker extends Component {
   render() {
-    //let {icon} = this.props
     return (
       <div className="map-marker-container">
         <div className="marker-container">
