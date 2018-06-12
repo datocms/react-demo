@@ -3,7 +3,6 @@ import React, { Component } from "react";
 export default class Search extends Component {
   constructor(props) {
     super(props);
-
     let { categories, amenities } = this.props;
     console.log(categories, amenities);
     let checked_categories = categories.map(i => i.id);
@@ -106,6 +105,7 @@ export default class Search extends Component {
                                   name={`cat_${cat.id}`}
                                   checked={this.isChecked(cat.id, "categories")}
                                   readOnly
+                                  onChange={() => {return }}
                                 />
                                 <label>{cat.name}</label>
                               </div>
@@ -158,6 +158,7 @@ export default class Search extends Component {
                                 type="checkbox"
                                 name={"amn_" + f.id}
                                 checked={this.isChecked(f.id, "amenities")}
+                                onChange={() => {return }}
                               />
                               <label>{f.name}</label>
                             </div>

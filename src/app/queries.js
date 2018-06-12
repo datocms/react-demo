@@ -1,5 +1,60 @@
-const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!) {
-  allPois(filter: {
+const index = `query index($limit: Int!, $offset: Int!) {
+  totalCount: allPois {
+    id
+  }
+  items: allPois(first: $limit, skip:$offset, orderBy: updatedAt_DESC) {
+    id
+    name
+    when
+    verified
+    coverImage {
+      url
+    }
+    updatedAt
+    rating
+    images: imageGallery {
+      url
+    }
+    address
+    location {
+      latitude
+      longitude
+    }
+    category {
+      id
+      name
+    }
+    amenities {
+      id
+      name
+    }
+    meta: _seoMetaTags {
+      tag
+      content
+      attributes
+    }
+  }
+  categories: allCategories {
+    id
+    name
+  }
+  amenities: allAmenities {
+    id
+    name
+  }
+}
+
+`;
+
+const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!, $limit: Int!, $offset: Int!) {
+  totalCount:allPois(filter: {
+    category: {in: $categories} ,
+    amenities: {anyIn: $amenities},
+    name: {matches: {pattern: $pattern, caseSensitive: false}}
+   }) {
+    id
+  }
+  items: allPois(first: $limit, skip:$offset, filter: {
     category: {in: $categories} ,
     amenities: {anyIn: $amenities},
     name: {matches: {pattern: $pattern, caseSensitive: false}}
@@ -169,4 +224,4 @@ const list = `{
 }
 `;
 
-export default { site, list, detail, categories, amenities, search };
+export default { site, list, detail, categories, amenities, search, index };

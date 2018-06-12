@@ -8,6 +8,7 @@ import Search from "./search";
 import Paginate from "./paginate";
 import client from "../request";
 
+const RESULT_X_PAGE = 4;
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -17,30 +18,74 @@ export default class Home extends Component {
       categories: null,
       amenities: null,
       error: null,
-      loading: true
+      loading: true,
+      totalCount: 0,
+      limit: RESULT_X_PAGE,
+      offset: 0,
+      filters: null
     };
   }
 
   componentDidMount() {
-    this.getData();
+    this.getIndex();
   }
 
   onSearch(filters) {
-    this.setState({ loading: true });
     this.searchData(filters);
   }
 
-  async searchData(params) {
+  changePage(page) {
+    let { filters, limit } = this.state;
+    let offset = page * limit;
+    if (!filters) return this.getIndex(offset);
+    this.searchData(filters, offset);
+  }
+
+  async searchData(filters, offset=0) {
+    this.setState({ loading: true, filters });
+    let { limit } = this.state;
+    let params = { ...filters, limit, offset };
     try {
       let results = await client.doQuery(client.queries.search, params);
-      console.log("RESULTS", results);
       let state = {
         loading: false
       };
-      if (results.data) state = { items: results.data.allPois, loading: false };
+      if (results.data)
+        state = {
+          totalCount: results.data.totalCount.length,
+          items: results.data.items,
+          loading: false,
+          offset
+        };
       this.setState(state);
     } catch (error) {
       this.setState({ loading: false });
+      throw error;
+    }
+  }
+
+  async getIndex(offset = 0) {
+    try {
+      let results = await client.doQuery(client.queries.index, {
+        limit: this.state.limit,
+        offset
+      });
+      let state = {
+        loading: false
+      };
+      if (results.data)
+        state = {
+          totalCount: results.data.totalCount.length,
+          items: results.data.items,
+          categories: results.data.categories,
+          amenities: results.data.amenities,
+          loading: false,
+          offset
+        };
+
+      this.setState(state);
+    } catch (error) {
+      this.setState(error, { loading: false });
       throw error;
     }
   }
@@ -70,7 +115,17 @@ export default class Home extends Component {
   }
 
   render() {
-    let { site, items, categories, amenities, error, loading } = this.state;
+    let {
+      site,
+      items,
+      categories,
+      amenities,
+      error,
+      loading,
+      totalCount,
+      limit,
+      offset
+    } = this.state;
     let len = items && items.length ? items.length : 0;
     let siteName = site ? site.globalSeo.siteName : "";
     let meta = items && items.meta ? items.meta : [];
@@ -135,10 +190,16 @@ export default class Home extends Component {
                 <div className="row fs-listings">
                   <div className="col-md-12">
                     <div className="clearfix" />
-                    <Paginate />
+                    <Paginate
+                      total={totalCount}
+                      limit={limit}
+                      offset={offset}
+                      changePage={this.changePage.bind(this)}
+                    />
                     <div className="clearfix" />
                     <div className="copyrights margin-top-0">
-                      © {new Date().getUTCFullYear()} {siteName}. All Rights Reserved.
+                      © {new Date().getUTCFullYear()} {siteName}. All Rights
+                      Reserved.
                     </div>
                   </div>
                 </div>
