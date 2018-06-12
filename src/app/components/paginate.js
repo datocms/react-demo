@@ -4,7 +4,7 @@ class Paginate extends React.Component {
   constructor(props) {
     super(props);
   }
-  handleClick(index,) {
+  handleClick(index) {
     this.props.changePage(index);
   }
 
@@ -13,6 +13,8 @@ class Paginate extends React.Component {
     let num_pages = Math.ceil(total / limit);
     let pages = "page|".repeat(num_pages);
     let currentPage = offset ? Math.ceil(offset / limit) : 0;
+    console.log(this.props, currentPage);
+    if (num_pages <= 1) return null;
     return (
       <div className="row">
         <div className="col-md-12">

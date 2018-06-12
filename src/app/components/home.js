@@ -76,7 +76,7 @@ export default class Home extends Component {
       if (results.data)
         state = {
           site: results.data.site,
-          totalCount: results.data.totalCount.length,
+          totalCount: results.data.totalCount.count,
           items: results.data.items,
           categories: results.data.categories,
           amenities: results.data.amenities,

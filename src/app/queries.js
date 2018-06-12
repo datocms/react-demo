@@ -59,8 +59,8 @@ const index = `query index($limit: Int!, $offset: Int!) {
       attributes
     }
   }
-  totalCount: allPois {
-    id
+  totalCount: _allPoisMeta {
+    count
   }
 }
 `;
