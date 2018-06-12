@@ -4,7 +4,6 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     let { categories, amenities } = this.props;
-    console.log(categories, amenities);
     let checked_categories = categories.map(i => i.id);
     let checked_amenities = amenities.map(i => i.id);
 

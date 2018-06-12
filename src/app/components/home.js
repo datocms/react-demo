@@ -75,6 +75,7 @@ export default class Home extends Component {
       };
       if (results.data)
         state = {
+          site: results.data.site,
           totalCount: results.data.totalCount.length,
           items: results.data.items,
           categories: results.data.categories,
@@ -82,30 +83,6 @@ export default class Home extends Component {
           loading: false,
           offset
         };
-
-      this.setState(state);
-    } catch (error) {
-      this.setState(error, { loading: false });
-      throw error;
-    }
-  }
-
-  async getData() {
-    try {
-      let results = await Promise.all([
-        client.doQuery(client.queries.site),
-        client.doQuery(client.queries.list),
-        client.doQuery(client.queries.categories),
-        client.doQuery(client.queries.amenities)
-      ]);
-
-      let state = {
-        site: results[0].data.site,
-        items: results[1].data.allPois,
-        categories: results[2].data.allCategories,
-        amenities: results[3].data.allAmenities,
-        loading: false
-      };
 
       this.setState(state);
     } catch (error) {

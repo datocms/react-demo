@@ -1,6 +1,31 @@
 const index = `query index($limit: Int!, $offset: Int!) {
-  totalCount: allPois {
+  site: _site {
+    globalSeo {
+      facebookPageUrl
+      siteName
+      titleSuffix
+      twitterAccount
+      fallbackSeo {
+        description
+        title
+        image {
+          url
+        }
+      }
+    }
+    favicons: faviconMetaTags {
+      attributes
+      tag
+      content
+    }
+  }
+  categories: allCategories {
     id
+    name
+  }
+  amenities: allAmenities {
+    id
+    name
   }
   items: allPois(first: $limit, skip:$offset, orderBy: updatedAt_DESC) {
     id
@@ -34,16 +59,10 @@ const index = `query index($limit: Int!, $offset: Int!) {
       attributes
     }
   }
-  categories: allCategories {
+  totalCount: allPois {
     id
-    name
-  }
-  amenities: allAmenities {
-    id
-    name
   }
 }
-
 `;
 
 const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!, $limit: Int!, $offset: Int!) {
@@ -86,43 +105,6 @@ const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: Str
     }
   }
  }`;
-
-const site = `{
-  site: _site {
-    globalSeo {
-      facebookPageUrl
-      siteName
-      titleSuffix
-      twitterAccount
-      fallbackSeo {
-        description
-        title
-        image {
-          url
-        }
-      }
-    }
-    favicons: faviconMetaTags {
-      attributes
-      tag
-      content
-    }
-  }
-}`;
-
-const amenities = `{
-  allAmenities {
-    id
-    name
-  }
-}`;
-
-const categories = `{
-  allCategories {
-    id
-    name
-  }
-}`;
 
 const detail = `query getDetail($id: ID) {
   detail: allPois(
@@ -188,40 +170,4 @@ const detail = `query getDetail($id: ID) {
   }
 }`;
 
-const list = `{
-  allPois(orderBy: updatedAt_DESC) {
-    id
-    name
-    when
-    verified
-    coverImage{
-      url
-    }
-    updatedAt
-    rating
-    images: imageGallery {
-      url
-    }
-    address
-    location {
-      latitude
-      longitude
-    }
-    category {
-      id
-      name
-    }
-    amenities{
-      id
-      name
-    }
-    meta: _seoMetaTags {
-      tag
-      content
-      attributes
-    }
-  }
-}
-`;
-
-export default { site, list, detail, categories, amenities, search, index };
+export default { detail, search, index };
