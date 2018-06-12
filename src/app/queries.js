@@ -66,12 +66,12 @@ const index = `query index($limit: Int!, $offset: Int!) {
 `;
 
 const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!, $limit: Int!, $offset: Int!) {
-  totalCount:allPois(filter: {
+  totalCount: _allPoisMeta(filter: {
     category: {in: $categories} ,
     amenities: {anyIn: $amenities},
     name: {matches: {pattern: $pattern, caseSensitive: false}}
-   }) {
-    id
+   }){
+    count
   }
   items: allPois(first: $limit, skip:$offset, filter: {
     category: {in: $categories} ,

@@ -30,40 +30,6 @@ export default class Home extends Component {
     this.getIndex();
   }
 
-  onSearch(filters) {
-    this.searchData(filters);
-  }
-
-  changePage(page) {
-    let { filters, limit } = this.state;
-    let offset = page * limit;
-    if (!filters) return this.getIndex(offset);
-    this.searchData(filters, offset);
-  }
-
-  async searchData(filters, offset=0) {
-    this.setState({ loading: true, filters });
-    let { limit } = this.state;
-    let params = { ...filters, limit, offset };
-    try {
-      let results = await client.doQuery(client.queries.search, params);
-      let state = {
-        loading: false
-      };
-      if (results.data)
-        state = {
-          totalCount: results.data.totalCount.length,
-          items: results.data.items,
-          loading: false,
-          offset
-        };
-      this.setState(state);
-    } catch (error) {
-      this.setState({ loading: false });
-      throw error;
-    }
-  }
-
   async getIndex(offset = 0) {
     try {
       let results = await client.doQuery(client.queries.index, {
@@ -87,6 +53,40 @@ export default class Home extends Component {
       this.setState(state);
     } catch (error) {
       this.setState(error, { loading: false });
+      throw error;
+    }
+  }
+
+  onSearch(filters) {
+    this.searchData(filters);
+  }
+
+  changePage(page) {
+    let { filters, limit } = this.state;
+    let offset = page * limit;
+    if (!filters) return this.getIndex(offset);
+    this.searchData(filters, offset);
+  }
+
+  async searchData(filters, offset = 0) {
+    this.setState({ loading: true, filters });
+    let { limit } = this.state;
+    let params = { ...filters, limit, offset };
+    try {
+      let results = await client.doQuery(client.queries.search, params);
+      let state = {
+        loading: false
+      };
+      if (results.data)
+        state = {
+          totalCount: results.data.totalCount.count,
+          items: results.data.items,
+          loading: false,
+          offset
+        };
+      this.setState(state);
+    } catch (error) {
+      this.setState({ loading: false });
       throw error;
     }
   }
