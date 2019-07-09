@@ -1,4 +1,4 @@
-const index = `query index($limit: Int!, $offset: Int!) {
+const index = `query index($limit: IntType, $offset: IntType) {
   site: _site {
     globalSeo {
       facebookPageUrl
@@ -65,7 +65,7 @@ const index = `query index($limit: Int!, $offset: Int!) {
 }
 `;
 
-const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: String!, $limit: Int!, $offset: Int!) {
+const search = `query getPois($categories: [ItemId], $amenities: [ItemId], $pattern: String!, $limit: IntType!, $offset: IntType!) {
   totalCount: _allPoisMeta(filter: {
     category: {in: $categories} ,
     amenities: {anyIn: $amenities},
@@ -106,7 +106,7 @@ const search = `query getPois($categories: [ID], $amenities: [ID], $pattern: Str
   }
  }`;
 
-const detail = `query getDetail($id: ID) {
+const detail = `query getDetail($id: ItemId!) {
   detail: allPois(
     filter: {
       id: { eq: $id }

@@ -32,6 +32,7 @@ export default class Home extends Component {
 
   async getIndex(offset = 0) {
     try {
+      console.log(this.state.limit, offset);
       let results = await client.doQuery(client.queries.index, {
         limit: this.state.limit,
         offset
@@ -140,14 +141,13 @@ export default class Home extends Component {
           <div className="fs-inner-container content">
             <div className="fs-content">
               {error && <div className="danger danger-text">{error}</div>}
-              {categories &&
-                amenities && (
-                  <Search
-                    categories={categories}
-                    amenities={amenities}
-                    onSearch={this.onSearch.bind(this)}
-                  />
-                )}
+              {categories && amenities && (
+                <Search
+                  categories={categories}
+                  amenities={amenities}
+                  onSearch={this.onSearch.bind(this)}
+                />
+              )}
 
               <section className="listings-container margin-top-30">
                 <div className="row fs-switcher">

@@ -1,6 +1,7 @@
 This app is a Demo app for using DatoCMS contents via GraphQL api on a ReactJS app.
 
 ## Stack
+
 - webpack
 - react
 - scss
@@ -20,6 +21,7 @@ You can find your [DatoCMS](https://datocms.com) API token in the Admin area > A
 ![DatoCMS API token](https://www.datocms.com/static/api-token-5afae851cb5efd1ea2abfc41741d7b96-95c66.png "DatoCMS API token")
 
 ## Run & Build
+
 first time run `yarn` to install dependencies.
 
 Develop: `yarn dev`
@@ -27,7 +29,8 @@ Develop: `yarn dev`
 Build:`yarn build`
 
 this create the build inthe `dist` folder.
-Deployable directly on surge, or netifly.
+Deployable directly on Surge, or Netifly.
 
 ## you can test your GraphQL at
-`const url = https://graphql.datocms.com/graphiql?apitoken=${DATO_API_TOKEN}`
+
+`https://graphql.datocms.com/graphiql?apitoken=${DATO_API_TOKEN}`
