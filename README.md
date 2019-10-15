@@ -13,24 +13,29 @@ This app is a Demo app for using DatoCMS contents via GraphQL api on a ReactJS a
 First colone this repo
 `git clone git@github.com:datocms/react-demo.git`
 
-#### `Set DatoCMS API token env variable`
+### Deploy on DatoCMS
 
-Edit the `.env_sample` file and add your DATO_API_KEY, then rename it to `.env` (check the webpack.config.js to see how .env is used)
-You can find your [DatoCMS](https://datocms.com) API token in the Admin area > API tokens section:
+Set up a DatoCMS project, with schema and data, to have a starting ground:
 
-![DatoCMS API token](https://www.datocms.com/static/api-token-5afae851cb5efd1ea2abfc41741d7b96-95c66.png "DatoCMS API token")
+[![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/deploy?repo=datocms/react-demo)
+
+
+### `Set DatoCMS API token env variable`
+
+Once you have set up a DatoCMS project with the button above, edit the `.env_sample` file and add your DATO_API_TOKEN. Then rename it to `.env` (check the webpack.config.js to see how .env is used).
+
+You can find your API token in the `Settings > API tokens` section.
 
 ## Run & Build
 
-first time run `yarn` to install dependencies.
+The first time run `yarn` to install dependencies.
 
 Develop: `yarn dev`
 
 Build:`yarn build`
 
-this create the build inthe `dist` folder.
-Deployable directly on Surge, or Netifly.
+The build is created in the `dist` folder, directly deployable on Surge, Netifly, etc.
 
-## you can test your GraphQL at
+## Test your GraphQL queries at
 
 `https://graphql.datocms.com/graphiql?apitoken=${DATO_API_TOKEN}`

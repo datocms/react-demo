@@ -1,0 +1,8 @@
+{
+  "name": "Listeo: React demo, inspired by Airbnb",
+  "previewImage": "https://cdn.jsdelivr.net/gh/datocms/react-demo/preview.png",
+  "templateId": "5691",
+  "deploymentType": "netlify",
+  "netlifyBuildCommand": "yarn build",
+  "netlifyBuildDirectory": "dist"
+}
