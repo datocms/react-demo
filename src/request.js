@@ -1,4 +1,3 @@
-const { DATO_API_TOKEN } = process.env;
 import queries from "./queries";
 
 const doQuery = async (q, v) => {
@@ -8,7 +7,7 @@ const doQuery = async (q, v) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${DATO_API_TOKEN}`
+        Authorization: `Bearer ${process.env.REACT_APP_DATO_API_TOKEN}`
       },
       body: JSON.stringify({ query: q, variables: v })
     }).then(res => res.json());

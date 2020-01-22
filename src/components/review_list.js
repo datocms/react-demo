@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import r1 from "../../assets/images/review-image-03.jpg";
-import r2 from "../../assets/images/review-image-02.jpg";
+import r1 from "../assets/images/review-image-03.jpg";
+import r2 from "../assets/images/review-image-02.jpg";
 
 export default class ReviewList extends Component {
   render() {

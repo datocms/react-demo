@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 import Routes from "./components/routes";
-import "../assets/styles/style.scss";
+import "./assets/styles/style.scss";
 
 export default class App extends Component {
   render() {
@@ -12,5 +11,3 @@ export default class App extends Component {
     );
   }
 }
-
-render(<App />, document.getElementById("app"));

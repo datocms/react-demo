@@ -1,3 +1,4 @@
+ /* eslint-disable no-undef */
 import React, { Component } from "react";
 import {
   compose,
@@ -16,12 +17,12 @@ import {
 import InfoBoxDetail from "./info_box_detail";
 import MyMarker from "./marker";
 
-import nightlife from "../../assets/images/map_icons/nightlife.svg";
-import coffee from "../../assets/images/map_icons/coffee.svg";
-import events from "../../assets/images/map_icons/events.svg";
-import hotel from "../../assets/images/map_icons/hotel.svg";
-import airport from "../../assets/images/map_icons/airport.svg";
-import food from "../../assets/images/map_icons/food.svg";
+import nightlife from "../assets/images/map_icons/nightlife.svg";
+import coffee from "../assets/images/map_icons/coffee.svg";
+import events from "../assets/images/map_icons/events.svg";
+import hotel from "../assets/images/map_icons/hotel.svg";
+import airport from "../assets/images/map_icons/airport.svg";
+import food from "../assets/images/map_icons/food.svg";
 
 
 const ny = { lat: 40.7127753, lng: -74.0059728 };

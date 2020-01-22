@@ -41,6 +41,7 @@ export default class Home extends Component {
         loading: false
       };
       if (results.data)
+        console.log(results.data);
         state = {
           site: results.data.site,
           totalCount: results.data.totalCount.count,
@@ -53,8 +54,8 @@ export default class Home extends Component {
 
       this.setState(state);
     } catch (error) {
-      this.setState(error, { loading: false });
-      throw error;
+      console.error(error);
+      this.setState({ loading: false });
     }
   }
 
@@ -125,12 +126,12 @@ export default class Home extends Component {
             }
           })}
           {favicons.map((item, i) => {
-            <link
+            return (<link
               key={"fav_" + i}
               rel={item.attributes.rel}
               type={item.attributes.type}
               href={item.attributes.href}
-            />;
+            />);
           })}
         </Helmet>
 
