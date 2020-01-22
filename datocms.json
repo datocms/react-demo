@@ -4,5 +4,6 @@
   "templateId": "5691",
   "deploymentType": "netlify",
   "netlifyBuildCommand": "yarn build",
-  "netlifyBuildDirectory": "dist"
+  "netlifyBuildDirectory": "build",
+  "datocmsApiTokenEnvName": "REACT_APP_DATO_API_TOKEN"
 }
