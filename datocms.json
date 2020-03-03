@@ -2,7 +2,7 @@
   "name": "Listeo: React demo, inspired by Airbnb",
   "previewImage": "https://cdn.jsdelivr.net/gh/datocms/react-demo/preview.png",
   "templateId": "5691",
-  "deploymentType": "netlify",
+  "deploymentType": "static",
   "netlifyBuildCommand": "yarn build",
   "netlifyBuildDirectory": "build",
   "datocmsApiTokenEnvName": "REACT_APP_DATO_API_TOKEN"
