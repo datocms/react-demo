@@ -1,9 +1,11 @@
 {
-  "name": "React DatoCMS lodging",
-  "previewImage": "https://cdn.jsdelivr.net/gh/datocms/react-demo/preview.png",
-  "templateId": "5691",
+  "name": "React Lodging SPA",
+  "description": "A simple single-page React.js application that shows how to fetch content from DatoCMS via GraphQL",
+  "previewImage": "https://www.datocms-assets.com/205/1585309992-screen-shot-2020-03-27-at-12-52-33-fullpage.png?crop=top&fit=crop&h=500&w=600&auto=format",
+  "datocmsProjectId": "5691",
   "deploymentType": "static",
-  "netlifyBuildCommand": "yarn build",
-  "netlifyBuildDirectory": "build",
-  "datocmsApiTokenEnvName": "REACT_APP_DATO_API_TOKEN"
+  "buildCommand": "yarn build",
+  "buildDirectory": "build",
+  "datocmsApiTokenEnvName": "REACT_APP_DATO_API_TOKEN",
+  "livePreviewUrl": "https://demo-datocms-react-airbnb.netlify.com/"
 }
