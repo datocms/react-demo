@@ -35,7 +35,6 @@ export default class Detail extends Component {
   }
 
   render() {
-    let { id } = this.props.match.params;
     let { detail } = this.state;
     let meta = detail && detail.meta ? detail.meta : [];
 
@@ -54,7 +53,7 @@ export default class Detail extends Component {
           <Helmet>
             <title>{detail.name}</title>
             {meta.map((item, i) => {
-              if (item.tag != "title") {
+              if (item.tag !== "title") {
                 return (
                   <meta
                     key={"meta_" + i}
@@ -122,7 +121,9 @@ export default class Detail extends Component {
 
                   <h3 className="listing-desc-headline">Amenities</h3>
                   <ul className="listing-features checkboxes margin-top-0">
-                    {detail.amenities.map(a => <li key={a.id}>{a.name}</li>)}
+                    {detail.amenities.map(a => (
+                      <li key={a.id}>{a.name}</li>
+                    ))}
                   </ul>
                 </div>
               )}

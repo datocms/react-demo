@@ -23,7 +23,11 @@ export default class Contact extends Component {
           </li>
           <li>
             <i className="fa fa-envelope-o" />{" "}
-            <a target="_blank" href={`mailto:${owner.emailAddress}`}>
+            <a
+              target="_blank"
+              href={`mailto:${owner.emailAddress}`}
+              rel="noopener noreferrer"
+            >
               <span className="__cf_email__">{owner.emailAddress}</span>
             </a>
           </li>
@@ -33,6 +37,7 @@ export default class Contact extends Component {
           <li>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href={owner.facebookProfilePage}
               className="facebook-profile"
             >
@@ -42,6 +47,7 @@ export default class Contact extends Component {
           <li>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href={owner.twitterProfilePage}
               className="twitter-profile"
             >

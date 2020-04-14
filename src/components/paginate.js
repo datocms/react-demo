@@ -1,9 +1,6 @@
 import React from "react";
 
 class Paginate extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   handleClick(index) {
     this.props.changePage(index);
   }
@@ -21,7 +18,7 @@ class Paginate extends React.Component {
             <nav className="pagination">
               <ul>
                 {pages.split("|").map((p, i) => {
-                  let isCurrent = currentPage == i;
+                  let isCurrent = currentPage === i;
                   return (
                     <li key={i}>
                       <a

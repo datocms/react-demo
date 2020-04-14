@@ -16,7 +16,7 @@ export default class Search extends Component {
   }
 
   toggleDropdown(val) {
-    if (this.state.dropdown == val) {
+    if (this.state.dropdown === val) {
       val = 0;
     }
     this.setState({ dropdown: val });
@@ -81,7 +81,7 @@ export default class Search extends Component {
                 <div className="col-fs-12">
                   <div
                     className={`panel-dropdown ${
-                      dropdown == 1 ? "active" : ""
+                      dropdown === 1 ? "active" : ""
                     }`}
                   >
                     <a href="#" onClick={() => this.toggleDropdown(1)}>
@@ -104,7 +104,9 @@ export default class Search extends Component {
                                   name={`cat_${cat.id}`}
                                   checked={this.isChecked(cat.id, "categories")}
                                   readOnly
-                                  onChange={() => {return }}
+                                  onChange={() => {
+                                    return;
+                                  }}
                                 />
                                 <label>{cat.name}</label>
                               </div>
@@ -135,7 +137,7 @@ export default class Search extends Component {
                   </div>
                   <div
                     className={`panel-dropdown wide  ${
-                      dropdown == 2 ? "active" : ""
+                      dropdown === 2 ? "active" : ""
                     }`}
                   >
                     <a href="#" onClick={() => this.toggleDropdown(2)}>
@@ -157,7 +159,9 @@ export default class Search extends Component {
                                 type="checkbox"
                                 name={"amn_" + f.id}
                                 checked={this.isChecked(f.id, "amenities")}
-                                onChange={() => {return }}
+                                onChange={() => {
+                                  return;
+                                }}
                               />
                               <label>{f.name}</label>
                             </div>

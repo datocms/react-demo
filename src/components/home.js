@@ -40,17 +40,16 @@ export default class Home extends Component {
       let state = {
         loading: false
       };
-      if (results.data)
-        console.log(results.data);
-        state = {
-          site: results.data.site,
-          totalCount: results.data.totalCount.count,
-          items: results.data.items,
-          categories: results.data.categories,
-          amenities: results.data.amenities,
-          loading: false,
-          offset
-        };
+      if (results.data) console.log(results.data);
+      state = {
+        site: results.data.site,
+        totalCount: results.data.totalCount.count,
+        items: results.data.items,
+        categories: results.data.categories,
+        amenities: results.data.amenities,
+        loading: false,
+        offset
+      };
 
       this.setState(state);
     } catch (error) {
@@ -115,7 +114,7 @@ export default class Home extends Component {
         <Helmet>
           <title>{siteName}</title>
           {meta.map((item, i) => {
-            if (item.tag != "title") {
+            if (item.tag !== "title") {
               return (
                 <meta
                   key={"meta_" + i}
@@ -126,12 +125,14 @@ export default class Home extends Component {
             }
           })}
           {favicons.map((item, i) => {
-            return (<link
-              key={"fav_" + i}
-              rel={item.attributes.rel}
-              type={item.attributes.type}
-              href={item.attributes.href}
-            />);
+            return (
+              <link
+                key={"fav_" + i}
+                rel={item.attributes.rel}
+                type={item.attributes.type}
+                href={item.attributes.href}
+              />
+            );
           })}
         </Helmet>
 

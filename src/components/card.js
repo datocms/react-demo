@@ -8,7 +8,7 @@ export default class Card extends Component {
     if (index > 1) cn = "col-lg-6 col-md-12";
     let cn_rating = "high";
     if (item.rating < 3) cn_rating = "low";
-    if (item.rating == 3) cn_rating = "mid";
+    if (item.rating === 3) cn_rating = "mid";
     return (
       <div className={cn}>
         <Link
@@ -27,7 +27,7 @@ export default class Card extends Component {
               </div>
             )}
 
-            {item.category.name.toLowerCase() != "event" && (
+            {item.category.name.toLowerCase() !== "event" && (
               <div className="listing-badge now-open">Now Open</div>
             )}
 
