@@ -6,7 +6,7 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
-const ny = { lat: 40.7127753, lng: -74.0059728 };
+
 const MyMapComponent = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places`,
