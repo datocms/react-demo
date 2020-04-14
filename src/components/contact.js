@@ -10,7 +10,7 @@ export default class Contact extends Component {
             <a href={`/user/${owner.id}`}>{owner.fullName}</a>
           </h4>
           <a href="pages-user-profile.html" className="hosted-by-avatar">
-            <img src={owner.image.url} />
+            <img src={owner.image.url} alt="" />
           </a>
         </div>
         <ul className="listing-details-sidebar">
@@ -19,7 +19,7 @@ export default class Contact extends Component {
           </li>
           <li>
             <i className="sl sl-icon-globe" />{" "}
-            <a href="#">http://example.com</a>
+            <button>http://example.com</button>
           </li>
           <li>
             <i className="fa fa-envelope-o" />{" "}
@@ -66,12 +66,9 @@ export default class Contact extends Component {
           </div>
         </div>
 
-        <a
-          href="#"
-          className="send-message-to-owner button popup-with-zoom-anim"
-        >
+        <button className="send-message-to-owner button popup-with-zoom-anim">
           <i className="sl sl-icon-envelope-open" /> Send Message
-        </a>
+        </button>
       </div>
     );
   }

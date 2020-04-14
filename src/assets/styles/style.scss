@@ -2868,7 +2868,7 @@ ul.select-options li {
 .panel-dropdown {
   position: relative;
   display: inline-block;
-  a {
+  button {
     color: #666;
     font-weight: 600;
     font-size: 15px;
@@ -2877,10 +2877,10 @@ ul.select-options li {
     transition: all 0.3s;
     display: inline-block;
   }
-  &.active a {
+  &.active button {
     background: #f3f3f3;
   }
-  a {
+  button {
     &:hover {
       background: #f3f3f3;
     }
@@ -2896,7 +2896,7 @@ ul.select-options li {
       display: inline-block;
     }
   }
-  &.active a:after {
+  &.active button:after {
     transform: rotate(180deg);
   }
   .panel-dropdown-content {
@@ -4617,7 +4617,7 @@ a.mfp-gallery,
   }
 }
 
-a.send-message-to-owner.button {
+button.send-message-to-owner.button {
   font-size: 13px;
   font-weight: 500;
   padding: 4px 20px;
@@ -5441,7 +5441,7 @@ a.rate-review {
       color: #a0a0a0;
       padding: 0 6px;
     }
-    a.current-page {
+    button.current-page {
       background-color: #f2f2f2;
       color: #333;
     }
@@ -5485,9 +5485,9 @@ a.rate-review {
     background-color: transparent;
   }
   .pagination {
-    ul li a.current-page,
+    ul li button.current-page,
     .current,
-    ul li a:hover {
+    ul li button:hover {
       background-color: #e8e8e8;
       color: #333;
     }
@@ -6858,7 +6858,7 @@ body .style-2 {
       right: 3px;
       top: 1px;
     }
-    a {
+    button {
       &.fb-share {
         &:hover {
           background: #3b5998;
@@ -8320,7 +8320,7 @@ body .notification strong {
     transform: scale(1.19);
     -webkit-transform: scale(1.19);
     -webkit-filter: blur(radius);
-    a {
+    button {
       width: 44px;
       height: 44px;
       display: inline-block;
@@ -8335,10 +8335,10 @@ body .notification strong {
       border: 1px solid transparent;
     }
   }
-  &.fixed li a {
+  &.fixed li button {
     display: block;
   }
-  li a {
+  li button {
     i {
       -webkit-transition: all 0.2s ease-in-out;
       -moz-transition: all 0.2s ease-in-out;
@@ -8364,10 +8364,10 @@ body .notification strong {
       opacity: 1;
     }
   }
-  &.rounded li a {
+  &.rounded li button {
     border-radius: 50%;
   }
-  &.border li a {
+  &.border li button {
     background-color: #fff;
     border: 1px solid #e0e0e0;
     &:hover {
@@ -8375,7 +8375,7 @@ body .notification strong {
     }
   }
   &.color {
-    li a {
+    li button {
       border-color: transparent;
       i,
       &:hover i {
@@ -8383,7 +8383,7 @@ body .notification strong {
         opacity: 1;
       }
     }
-    a:before {
+    button:before {
       opacity: 0;
     }
   }
@@ -8454,7 +8454,7 @@ body .notification strong {
 }
 
 .twitter:before,
-.social-icons li a.twitter i {
+.social-icons li button.twitter i {
   font-size: 14px;
 }
 
@@ -10855,7 +10855,7 @@ a.dashboard-responsive-nav-trigger {
     background-color: transparent;
   }
   .pagination {
-    ul li a.current-page,
+    ul li button.current-page,
     .current,
     ul li a:hover {
       background-color: #fff;

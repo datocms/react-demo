@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "../assets/images/logo.png";
+
 export default class Footer extends Component {
   render() {
     return (
@@ -7,7 +8,7 @@ export default class Footer extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-5 col-sm-6">
-              <img className="footer-logo" src={logo} />
+              <img className="footer-logo" src={logo} alt="" />
               <p>
                 Morbi convallis bibendum urna ut viverra. Maecenas quis
                 consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi
@@ -24,36 +25,37 @@ export default class Footer extends Component {
               <div className="text-widget">
                 <span>12345 Little Lonsdale St, Melbourne</span>
                 Phone: <span>(123) 123-456 </span>
-                E-Mail:<span>
-                    <span
-                      className="__cf_email__"
-                      data-cfemail="4e212828272d2b0e2b362f233e222b602d2123"
-                    >
-                      [email&#160;protected]
-                    </span>
+                E-Mail:
+                <span>
+                  <span
+                    className="__cf_email__"
+                    data-cfemail="4e212828272d2b0e2b362f233e222b602d2123"
+                  >
+                    [email&#160;protected]
+                  </span>
                 </span>
               </div>
 
               <ul className="social-icons margin-top-20">
                 <li>
-                  <a className="facebook" href="#">
+                  <button className="facebook">
                     <i className="icon-facebook" />
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a className="twitter" href="#">
+                  <button className="twitter">
                     <i className="icon-twitter" />
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a className="gplus" href="#">
+                  <button className="gplus">
                     <i className="icon-gplus" />
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a className="vimeo" href="#">
+                  <button className="vimeo">
                     <i className="icon-vimeo" />
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>

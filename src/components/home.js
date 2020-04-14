@@ -123,6 +123,7 @@ export default class Home extends Component {
                 />
               );
             }
+            return null;
           })}
           {favicons.map((item, i) => {
             return (

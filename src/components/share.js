@@ -11,24 +11,24 @@ export default class Share extends Component {
 
         <ul className="share-buttons margin-top-40 margin-bottom-0">
           <li>
-            <a className="fb-share" href="#">
+            <button className="fb-share">
               <i className="fa fa-facebook" /> Share
-            </a>
+            </button>
           </li>
           <li>
-            <a className="twitter-share" href="#">
+            <button className="twitter-share">
               <i className="fa fa-twitter" /> Tweet
-            </a>
+            </button>
           </li>
           <li>
-            <a className="gplus-share" href="#">
+            <button className="gplus-share">
               <i className="fa fa-google-plus" /> Share
-            </a>
+            </button>
           </li>
           <li>
-            <a className="pinterest-share" href="#">
+            <button className="pinterest-share">
               <i className="fa fa-pinterest-p" /> Pin
-            </a>
+            </button>
           </li>
         </ul>
         <div className="clearfix" />

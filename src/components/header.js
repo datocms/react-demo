@@ -11,7 +11,7 @@ export default class Header extends Component {
             <div className="left-side">
               <div id="logo">
                 <Link to={`/`}>
-                  <img src={logo} />
+                  <img src={logo} alt="" />
                 </Link>
               </div>
               <div className="mmenu-trigger">

@@ -26,7 +26,7 @@ export default class SimpleSlider extends Component {
           {this.props.images.map((img, i) => {
             return (
               <div key={i} className="item crop">
-                <img className="slide_img" src={img.url} />
+                <img className="slide_img" src={img.url} alt="" />
               </div>
             );
           })}

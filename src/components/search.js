@@ -84,9 +84,9 @@ export default class Search extends Component {
                       dropdown === 1 ? "active" : ""
                     }`}
                   >
-                    <a href="#" onClick={() => this.toggleDropdown(1)}>
+                    <button onClick={() => this.toggleDropdown(1)}>
                       Categories
-                    </a>
+                    </button>
                     <div className="panel-dropdown-content checkboxes categories">
                       <div className="row">
                         <div className="col-md-6">
@@ -140,9 +140,9 @@ export default class Search extends Component {
                       dropdown === 2 ? "active" : ""
                     }`}
                   >
-                    <a href="#" onClick={() => this.toggleDropdown(2)}>
+                    <button onClick={() => this.toggleDropdown(2)}>
                       More Filters
-                    </a>
+                    </button>
                     <div className="panel-dropdown-content checkboxes">
                       <div className="row">
                         {amenities &&

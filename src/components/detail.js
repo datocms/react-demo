@@ -38,7 +38,7 @@ export default class Detail extends Component {
     let { detail } = this.state;
     let meta = detail && detail.meta ? detail.meta : [];
 
-    if (!detail)
+    if (!detail) {
       return (
         <div id="wrapper">
           <div className="clearfix" />
@@ -47,6 +47,8 @@ export default class Detail extends Component {
           </div>
         </div>
       );
+    }
+
     return (
       <div id="wrapper">
         {meta && (
@@ -62,6 +64,7 @@ export default class Detail extends Component {
                   />
                 );
               }
+              return null;
             })}
           </Helmet>
         )}
@@ -134,9 +137,7 @@ export default class Detail extends Component {
                 </h3>
                 <div id="singleListingMap-container">
                   <SimpleMap detail={detail} />
-                  <a href="#" id="streetView">
-                    Street View
-                  </a>
+                  <button id="streetView">Street View</button>
                 </div>
               </div>
               <ReviewList />
@@ -147,10 +148,6 @@ export default class Detail extends Component {
         </div>
 
         <Footer />
-
-        <div id="backtotop">
-          <a href="#" />
-        </div>
       </div>
     );
   }

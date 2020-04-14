@@ -35,14 +35,14 @@ export default class ReviewList extends Component {
                 </p>
 
                 <div className="review-images mfp-gallery-container">
-                  <a href="#" className="mfp-gallery">
-                    <img src={r1} />
-                  </a>
+                  <button className="mfp-gallery">
+                    <img src={r1} alt="" />
+                  </button>
                 </div>
-                <a href="#" className="rate-review">
+                <button className="rate-review">
                   <i className="sl sl-icon-like" /> Helpful Review{" "}
                   <span>12</span>
-                </a>
+                </button>
               </div>
             </li>
 
@@ -64,10 +64,10 @@ export default class ReviewList extends Component {
                   blandit enim. Sem felis, ullamcorper vel aliquam non, varius
                   eget justo. Duis quis nunc tellus sollicitudin mauris.
                 </p>
-                <a href="#" className="rate-review">
+                <button className="rate-review">
                   <i className="sl sl-icon-like" /> Helpful Review{" "}
                   <span>2</span>
-                </a>
+                </button>
               </div>
             </li>
 
@@ -91,14 +91,14 @@ export default class ReviewList extends Component {
                 </p>
 
                 <div className="review-images mfp-gallery-container">
-                  <a href="#">
+                  <button href="#">
                     <img src={r2} alt="" />
-                  </a>
+                  </button>
                 </div>
-                <a href="#" className="rate-review">
+                <button className="rate-review">
                   <i className="sl sl-icon-like" /> Helpful Review{" "}
                   <span>4</span>
-                </a>
+                </button>
               </div>
             </li>
 
@@ -120,9 +120,9 @@ export default class ReviewList extends Component {
                   blandit enim. Sem felis, ullamcorper vel aliquam non, varius
                   eget justo. Duis quis nunc tellus sollicitudin mauris.
                 </p>
-                <a href="#" className="rate-review">
+                <button className="rate-review">
                   <i className="sl sl-icon-like" /> Helpful Review
-                </a>
+                </button>
               </div>
             </li>
           </ul>
@@ -135,17 +135,15 @@ export default class ReviewList extends Component {
               <nav className="pagination">
                 <ul>
                   <li>
-                    <a href="#" className="current-page">
-                      1
-                    </a>
+                    <button className="current-page">1</button>
                   </li>
                   <li>
-                    <a href="#">2</a>
+                    <button href="#">2</button>
                   </li>
                   <li>
-                    <a href="#">
+                    <button href="#">
                       <i className="sl sl-icon-arrow-right" />
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </nav>

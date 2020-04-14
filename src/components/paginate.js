@@ -21,7 +21,7 @@ class Paginate extends React.Component {
                   let isCurrent = currentPage === i;
                   return (
                     <li key={i}>
-                      <a
+                      <button
                         className={isCurrent ? "current-page" : ""}
                         href="#"
                         onClick={() =>
@@ -30,7 +30,7 @@ class Paginate extends React.Component {
                       >
                         {p && `${i + 1}`}
                         {!p && <i className="sl sl-icon-arrow-right" />}
-                      </a>
+                      </button>
                     </li>
                   );
                 })}

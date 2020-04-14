@@ -17,7 +17,7 @@ export default class Card extends Component {
           data-marker-id={item.id}
         >
           <div className="listing-item">
-            <img src={item.coverImage.url} />
+            <img src={item.coverImage.url} alt="" />
 
             {item.category.name.toLowerCase() === "event" && (
               <div className="listing-item-details">
