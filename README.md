@@ -1,3 +1,5 @@
+# React DatoCMS bnb demo ⛔️ DEPRECATED ⛔️
+
 This app is a demo app for using DatoCMS contents via GraphQL api on a ReactJS app.
 
 ## Setup the Project
